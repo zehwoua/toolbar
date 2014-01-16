@@ -1,0 +1,49 @@
+@import "css-mixins";
+@import "reset";
+body{
+	background-image: url(../images/bg.jpg);
+	background-color:#b4c5d6;
+	background-size:cover;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	color: #333;
+	text-align: center;
+}
+#toolbar{
+	@include background-gradient(rgba(255,255,255,0.3), 0%, rgba(0,0,0,0.1), 100%);
+	margin: 200px auto;
+	@include box-shadow(0px -1px 1px rgba(255,255,255,0.4) inset,1px 0px 1px rgba(255,255,255,0.4) inset,-1px 0px 1px rgba(255,255,255,0.4) inset, 0 2px 3px rgba(0,0,0,0.2));
+	@include border-radius(5px);
+	display: inline-block;
+	li{
+		float: left;
+		a{
+			padding: 15px 20px;
+			display: block;
+			border-right: 1px solid #a8a8a8;
+			border-left: 1px solid rgba(255,255,255,0.3);
+			font-size: 20px;
+			i{
+				@include background-gradient(#6b7987,0% ,#889aac,36%);
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+			}
+			&:hover{
+				@include background-gradient(rgba(255,255,255,0.5), 0%, rgba(0,0,0,0.1), 100%);
+			}
+			&:focus, &:active{
+				/*@include background-gradient(rgba(0,0,0,0.1), 0%, rgba(255,255,255,0.5), 100%);*/
+				@include box-shadow(0 1px 1px rgba(0,0,0,0.3) inset);
+				outline: none;
+			}
+		}
+		&:first-child a{
+				border-left:none;
+				@include border-radius-separate (5px,0,0,5px);
+		}
+		&:last-child a{
+				border-right:none;
+				@include border-radius-separate (0,5px,5px,0);
+		}
+	}
+}
